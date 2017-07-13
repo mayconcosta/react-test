@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import List from "./list/List"
+import Form from "./form/Form"
 
 class Content extends Component {
   render() {
@@ -17,12 +18,7 @@ class Content extends Component {
     return (
       <div className="content">
         <div>
-          <form id="formulario">
-            <label>Item:</label><input id="item" type="text" />
-            <label>Valor:</label><input id="valor" type="text" />
-            <label>Quantidade:</label><input id="quantidade" type="number" />
-            <button type="submit">Adicionar</button>
-          </form>
+          <Form />
         </div>
         <List items={itemList}/>
       </div>
