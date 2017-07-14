@@ -15,8 +15,8 @@ class List extends Component {
       list.forEach((e) => {
         summary.listSize++
         summary.numItems += e.quantity
-        summary.unitSum += e.value
-        summary.totalSum += (e.value * e.quantity)
+        summary.unitSum += e.price
+        summary.totalSum += (e.price * e.quantity)
       })
     }
     return summary
@@ -27,7 +27,7 @@ class List extends Component {
     let itemList = this.props.items;
 
     let allItems = itemList.map((it) => {
-      return <Item name={it.name} value={it.value.toFixed(2)} quantity={it.quantity} />
+      return <Item name={it.name} price={it.price.toFixed(2)} quantity={it.quantity} />
     })
 
     let summary = this.calculateSummary(itemList)
