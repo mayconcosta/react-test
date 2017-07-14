@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import List from "./list/List"
-import Form from "./form/Form"
 
 class Content extends Component {
 
