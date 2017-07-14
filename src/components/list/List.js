@@ -5,12 +5,12 @@ class List extends Component {
 
   calculateSummary(list) {
     let summary = {
-      listSize:0,
-      numItems:0,
-      unitSum:0,
-      totalSum:0
+      listSize: 0,
+      numItems: 0,
+      unitSum: 0,
+      totalSum: 0
     }
-    
+
     if (list) {
       list.forEach((e) => {
         summary.listSize++
@@ -23,14 +23,12 @@ class List extends Component {
   }
 
   render() {
-
     let itemList = this.props.items;
-
-    let allItems = itemList.map((it) => {
-      return <Item name={it.name} price={it.price.toFixed(2)} quantity={it.quantity} />
-    })
-
     let summary = this.calculateSummary(itemList)
+
+    let allItems = itemList.map((it, index) => {
+      return <Item name={it.name} price={it.price.toFixed(2)} quantity={it.quantity} key={index} />
+    })
 
     return (
       <div>
