@@ -3,6 +3,20 @@ import Item from "./Item"
 
 class List extends Component {
 
+  constructor(props) {
+    super(props)
+    this.handleExclusion = this.handleExclusion.bind(this)
+    this.state = {
+      elements:this.props.items
+    }
+  }
+
+  handleExclusion(index) {
+    let list = this.state.elements
+    list.splice(index, 1)
+    this.setState({elements:list})
+  }
+
   calculateSummary(list) {
     let summary = {
       listSize: 0,
@@ -23,11 +37,11 @@ class List extends Component {
   }
 
   render() {
-    let itemList = this.props.items;
+    let itemList = this.state.elements
     let summary = this.calculateSummary(itemList)
 
     let allItems = itemList.map((it, index) => {
-      return <Item name={it.name} price={it.price.toFixed(2)} quantity={it.quantity} key={index} />
+      return <Item name={it.name} price={it.price.toFixed(2)} quantity={it.quantity} key={index} index={index} deleteItem={this.handleExclusion}/>
     })
 
     return (

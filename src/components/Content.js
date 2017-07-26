@@ -31,7 +31,7 @@ class Content extends Component {
     }
     let list = this.state.items
     list.push(newItem)
-    this.setState({item:list})
+    this.setState({items:list})
     event.preventDefault()
   }
 
