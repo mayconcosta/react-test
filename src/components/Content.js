@@ -17,7 +17,7 @@ class Content extends Component {
     ]
 
     this.state = {
-      items:itemList
+      items: itemList
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -31,7 +31,7 @@ class Content extends Component {
     }
     let list = this.state.items
     list.push(newItem)
-    this.setState({items:list})
+    this.setState({ items: list })
     event.preventDefault()
   }
 
@@ -40,14 +40,31 @@ class Content extends Component {
       <div className="content">
         <div>
           <form id="formulario" onSubmit={this.handleSubmit}>
-            <label>Item:</label><input id="item" type="text" name="item" />
-            <label>Pre&ccedil;o:</label><input id="preco" type="text" name="price" />
-            <label>Quantidade:</label><input id="quantidade" type="number" name="quantity" />
-            <button type="submit">Adicionar</button>
+            <div className="row form-group">
+              <div className="col-md-4">
+                <label className="form-label">Item:</label>
+                <input id="item" type="text" name="item" className="form-control" />
+              </div>
+
+              <div className="col-md-4">
+                <label className="form-label">Pre&ccedil;o:</label>
+                <input className="form-control" id="preco" type="text" name="price" />
+              </div>
+              <div className="col-md-4">
+                <label className="form-label">Quantidade:</label>
+                <input className="form-control" id="quantidade" type="number" name="quantity" />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col">
+                <button type="submit" className="btn btn-primary">Adicionar</button>
+              </div>
+            </div>
           </form>
-        </div>
-        <List items={this.state.items} />
       </div>
+      <hr/>
+      <List items={this.state.items} />
+      </div >
     )
   }
 }

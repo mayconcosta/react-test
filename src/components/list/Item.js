@@ -23,7 +23,7 @@ class Item extends Component {
         <td>R$ {this.props.price}</td>
         <td>{this.props.quantity}</td>
         <td>R$ {this.calculateTotal(this.props)}</td>
-        <td><button onClick={this.handleClick}>Excluir</button></td>
+        <td><button className="btn btn-sm btn-danger" onClick={this.handleClick}>Excluir</button></td>
       </tr>
     )
   }
